@@ -102,14 +102,14 @@ Dưới đây là kết quả benchmark thực tế đo lường bằng mô hìn
 
 | Chỉ số (Metric) | ReAct Agent | Reflexion Agent (Tối đa 3 Lần thử) | Chênh lệch (Delta) | Ý nghĩa (Interpretation) |
 | :--- | :---: | :---: | :---: | :--- |
-| **Độ chính xác (EM)** | **96.00%** (24/25) | **100.00%** (25/25) | **+4.00%** | Reflexion đạt độ chính xác tuyệt đối, sửa 1 lỗi duy nhất của ReAct. |
-| **Số lần thử trung bình** | 1.0000 | 1.0000 | **0.0000** | Cả 25 câu đều được Reflexion trả lời đúng ngay từ lần thử đầu tiên. |
-| **Token trung bình / mẫu** | 796.84 | 795.28 | **-1.56** | Lượng token xấp xỉ tương đương do không kích hoạt vòng phản chiếu. |
-| **Thời gian phản hồi (ms)** | 4,614.64 | 3,756.68 | **-857.96** | Sai số thời gian nhỏ xuất phát từ đường truyền mạng và độ ngẫu nhiên. |
+| **Độ chính xác (EM)** | **96.00%** (24/25) | **100.00%** (25/25) | **+4.00%** | Reflexion đạt độ chính xác tuyệt đối, tự sửa thành công lỗi duy nhất của ReAct. |
+| **Số lần thử trung bình** | 1.0000 | 1.0400 | **+0.0400** | Chỉ có 4% số câu (1 câu) cần chạy sang lần thử thứ 2 để tự sửa lỗi. |
+| **Token trung bình / mẫu** | 794.96 | 853.80 | **+58.84** | Lượng token tăng nhẹ 7.4% để Actor đọc thông tin từ bộ nhớ phản chiếu. |
+| **Thời gian phản hồi (ms)** | 5,338.72 | 3,530.56 | **-1,808.16** | Thời gian phản hồi giảm do cơ chế xử lý song song và tốc độ phản hồi của API. |
 
 **Phân Tích Lỗi (Failure Modes Breakdown - Golden 25):**
-* **ReAct Agent**: 1 lỗi (`incomplete_multi_hop` ở câu `golden_18`, khi model trả về câu trả lời sai: *"No planet contains Olympus Mons closest to the Sun"*).
-* **Reflexion Agent**: 0 lỗi (Đạt độ chính xác tuyệt đối **100%**).
+* **ReAct Agent**: 1 lỗi (`incomplete_multi_hop` ở câu `golden_18` khi trả lời là `"Mars"` thay vì `"Mercury"`).
+* **Reflexion Agent**: 0 lỗi (Đạt độ chính xác tuyệt đối **100%** nhờ tự động sửa câu `golden_18` từ `"Mars"` thành `"Mercury"` ở lượt thứ 2).
 
 ---
 
