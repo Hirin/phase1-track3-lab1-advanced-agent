@@ -113,3 +113,14 @@ Thay thế `token_estimate` và `latency_ms` hardcoded trong `agents.py` bằng 
 | `run_benchmark.py` | Script chạy đánh giá |
 | `autograde.py` | Chấm điểm tự động từ `report.json` |
 | `data/hotpot_mini.json` | 8 câu hỏi multi-hop mẫu (dùng cho mock) |
+
+## 🚀 Các Tính Năng Nâng Cao Đã Triển Khai (Implemented Extensions)
+
+Dự án đã triển khai thành công **6 extensions** sau để tối ưu hóa hiệu năng hệ thống Agent:
+
+1. **`structured_evaluator`**: Evaluator trả về đối tượng JSON phân tích chi tiết lỗi (`missing_evidence`, `spurious_claims`, `reason`) thay vì chỉ so sánh chuỗi.
+2. **`reflection_memory`**: Lưu vết bài học (`lesson`) và chiến thuật hành động tiếp theo (`next_strategy`) làm ngữ cảnh giúp Actor tự sửa sai qua từng vòng lặp.
+3. **`benchmark_report_json`**: Sinh báo cáo benchmark song song ở cả dạng dữ liệu `report.json` phục vụ chấm điểm và `report.md` phục vụ đọc phân tích trực quan.
+4. **`mock_mode_for_autograding`**: Hỗ trợ chuyển đổi linh hoạt qua cờ lệnh `--mock` / `--no-mock` giữa việc giả lập và kết nối API LLM thật.
+5. **`adaptive_max_attempts`** (Mới tăng cường): Tự động điều chỉnh số lượt thử tối đa của Reflexion Agent dựa vào trường độ khó `difficulty` của câu hỏi (giới hạn tối đa 2 lượt với câu hỏi `easy` để tiết kiệm token, và tăng lên 4 lượt với câu hỏi `hard` để tăng tỷ lệ chính xác).
+6. **`memory_compression`** (Mới tăng cường): Cơ chế nén/thu gọn bộ nhớ phản chiếu khi kích thước bộ nhớ vượt quá 2 bài học (chỉ giữ lại bài học cốt lõi đầu tiên và bài học mới nhất) nhằm ngăn chặn việc tràn cửa sổ ngữ cảnh (context window bloat) và tránh các chỉ dẫn mâu thuẫn cho Actor.

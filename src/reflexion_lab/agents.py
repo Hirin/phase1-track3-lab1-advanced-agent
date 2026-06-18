@@ -14,7 +14,16 @@ class BaseAgent:
         traces: list[AttemptTrace] = []
         final_answer = ""
         final_score = 0
-        for attempt_id in range(1, self.max_attempts + 1):
+
+        # Adaptive max attempts based on difficulty
+        actual_max_attempts = self.max_attempts
+        if self.agent_type == "reflexion":
+            if example.difficulty == "easy":
+                actual_max_attempts = min(2, self.max_attempts)
+            elif example.difficulty == "hard":
+                actual_max_attempts = max(4, self.max_attempts)
+
+        for attempt_id in range(1, actual_max_attempts + 1):
             answer, actor_tokens, actor_latency = actor_answer(example, attempt_id, self.agent_type, reflection_memory)
             judge = evaluator(example, answer)
             
@@ -37,7 +46,7 @@ class BaseAgent:
                 break
             
             # Reflexion logic: if reflexion agent and not last attempt, run reflector
-            if self.agent_type == "reflexion" and attempt_id < self.max_attempts:
+            if self.agent_type == "reflexion" and attempt_id < actual_max_attempts:
                 reflection = reflector(example, attempt_id, judge)
                 trace.reflection = reflection
                 # Add reflector token and latency to this attempt trace
@@ -53,6 +62,11 @@ class BaseAgent:
                     f"Next strategy: {reflection.next_strategy}."
                 )
                 reflection_memory.append(memory_entry)
+                
+                # Memory compression / pruning: keep only the first/most fundamental lesson and the latest one
+                # to prevent context window bloat and instruction confusion
+                if len(reflection_memory) > 2:
+                    reflection_memory = [reflection_memory[0], reflection_memory[-1]]
             
             traces.append(trace)
         total_tokens = sum(t.token_estimate for t in traces)
