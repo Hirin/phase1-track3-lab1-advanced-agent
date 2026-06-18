@@ -20,6 +20,7 @@ def failure_breakdown(records: list[RunRecord]) -> dict:
     grouped: dict[str, Counter] = defaultdict(Counter)
     for record in records:
         grouped[record.agent_type][record.failure_mode] += 1
+        grouped["overall"][record.failure_mode] += 1
     return {agent: dict(counter) for agent, counter in grouped.items()}
 
 def build_report(records: list[RunRecord], dataset_name: str, mode: str = "mock") -> ReportPayload:
