@@ -1,6 +1,6 @@
 # Báo Cáo Phân Tích Hiệu Năng Reflexion Agent (Lab 16)
 
-Tài liệu này trình bày chi tiết luồng hoạt động (flow) và kết quả benchmark thực tế của hệ thống **Reflexion Agent** được triển khai bằng ngôn ngữ Python, sử dụng mô hình ngôn ngữ lớn `gpt-5.4-mini` qua API OpenAI.
+Tài liệu này trình bày chi tiết luồng hoạt động (flow) và kết quả benchmark thực tế của hệ thống **Reflexion Agent** được triển khai bằng ngôn ngữ Python, sử dụng mô hình ngôn ngữ lớn được cấu hình qua biến môi trường `MODEL_NAME` (ví dụ: `gpt-4o-mini`) qua API OpenAI.
 
 ---
 
@@ -81,34 +81,43 @@ graph TD
 
 ## 3. Kết Quả Đánh Giá Benchmark Thực Tế (Benchmark Results)
 
-Được đo lường trên tập dữ liệu gồm **60 câu hỏi thực tế** trích xuất từ bộ dữ liệu HotpotQA bằng cách sử dụng mô hình `gpt-5.4-mini` (chạy qua OpenAI API):
+Dưới đây là kết quả benchmark thực tế đo lường bằng mô hình **`gpt-4o-mini`** (cấu hình động qua biến môi trường `MODEL_NAME` trong `.env`) trên cả hai bộ dữ liệu kiểm thử:
 
-### Bảng So Sánh Hiệu Năng (Performance Summary)
+### 3.1. Kết quả trên Bộ dữ liệu Dev 60 (hotpot_dev_60.json)
 
-| Chỉ số (Metric) | ReAct Agent (1 Lần thử) | Reflexion Agent (Tối đa 3 Lần thử) | Chênh lệch (Delta) | Ý nghĩa (Interpretation) |
+| Chỉ số (Metric) | ReAct Agent | Reflexion Agent (Tối đa 3 Lần thử) | Chênh lệch (Delta) | Ý nghĩa (Interpretation) |
 | :--- | :---: | :---: | :---: | :--- |
-| **Độ chính xác (EM)** | **88.33%** (53/60) | **100.00%** (60/60) | **+11.67%** | Reflexion sửa sai thành công **100% các câu bị làm sai** ở lượt đầu. |
-| **Số lần thử trung bình** | 1.0000 | 1.1000 | **+0.1000** | Chỉ có đúng 10% số câu hỏi (6 câu) cần chạy đến lần thử thứ 2 để sửa lỗi. |
-| **Token trung bình / mẫu** | 2,216.80 | 2,557.00 | **+340.20** | Lượng token tiêu thụ tăng nhẹ khoảng **15.3%** cho hoạt động tự phản chiếu. |
-| **Thời gian phản hồi (ms)** | 3,603.70 (~3.60s) | 4,013.35 (~4.01s) | **+409.65** (~0.41s) | Nhờ tối ưu hóa, độ trễ tăng không đáng kể (~0.41 giây). |
+| **Độ chính xác (EM)** | **90.00%** (54/60) | **96.67%** (58/60) | **+6.67%** | Reflexion sửa lỗi thành công **4 câu** trả lời sai ở lượt đầu. |
+| **Số lần thử trung bình** | 1.0000 | 1.2333 | **+0.2333** | Có 14 câu cần chạy sang các lượt phản chiếu tiếp theo để sửa lỗi. |
+| **Token trung bình / mẫu** | 2,242.07 | 2,966.37 | **+724.30** | Lượng token tăng thêm do Actor cần đọc kinh nghiệm từ bộ nhớ phản chiếu. |
+| **Thời gian phản hồi (ms)** | 5,057.10 | 7,740.37 | **+2,683.27** | Thời gian phản hồi tăng do thực hiện thêm lượt gọi LLM trong phản chiếu. |
 
-### Phân Tích Lỗi (Failure Modes Breakdown)
+**Phân Tích Lỗi (Failure Modes Breakdown - Dev 60):**
+* **ReAct Agent**: 6 lỗi (`wrong_final_answer`: 3, `incomplete_multi_hop`: 3).
+* **Reflexion Agent**: 2 lỗi (`incomplete_multi_hop`: 1, `entity_drift`: 1). Reflexion đã sửa đổi và khắc phục thành công **4 trên 6 lỗi** từ ReAct.
 
-Số lượng lỗi trên tổng số **120 lượt chạy** (60 ReAct + 60 Reflexion):
+---
 
-- **ReAct Agent**:
-  - Trả lời đúng hoàn toàn (`none`): **53 mẫu**
-  - Trả lời sai đáp án cuối (`wrong_final_answer` / `entity_drift`): **7 mẫu**
-- **Reflexion Agent**:
-  - Trả lời đúng hoàn toàn (`none`): **60 mẫu** (Không còn lỗi sai nào)
-  - Trả lời sai đáp án cuối (`wrong_final_answer`): **0 mẫu**
+### 3.2. Kết quả trên Bộ dữ liệu Vàng (hotpot_golden.json)
+
+| Chỉ số (Metric) | ReAct Agent | Reflexion Agent (Tối đa 3 Lần thử) | Chênh lệch (Delta) | Ý nghĩa (Interpretation) |
+| :--- | :---: | :---: | :---: | :--- |
+| **Độ chính xác (EM)** | **96.00%** (24/25) | **100.00%** (25/25) | **+4.00%** | Reflexion đạt độ chính xác tuyệt đối, sửa 1 lỗi duy nhất của ReAct. |
+| **Số lần thử trung bình** | 1.0000 | 1.0000 | **0.0000** | Cả 25 câu đều được Reflexion trả lời đúng ngay từ lần thử đầu tiên. |
+| **Token trung bình / mẫu** | 796.84 | 795.28 | **-1.56** | Lượng token xấp xỉ tương đương do không kích hoạt vòng phản chiếu. |
+| **Thời gian phản hồi (ms)** | 4,614.64 | 3,756.68 | **-857.96** | Sai số thời gian nhỏ xuất phát từ đường truyền mạng và độ ngẫu nhiên. |
+
+**Phân Tích Lỗi (Failure Modes Breakdown - Golden 25):**
+* **ReAct Agent**: 1 lỗi (`incomplete_multi_hop` ở câu `golden_18`, khi model trả về câu trả lời sai: *"No planet contains Olympus Mons closest to the Sun"*).
+* **Reflexion Agent**: 0 lỗi (Đạt độ chính xác tuyệt đối **100%**).
 
 ---
 
 ## 4. Đánh Giá & Nhận Xét (Discussion)
 
 1. **Tính Hiệu Quả của Cơ Chế Tự Phản Chiếu (Self-Reflection)**:
-   - **Tỉ lệ sửa lỗi hoàn hảo (100% thành công)**: Trong số 7 câu hỏi mà ReAct làm sai ở lượt 1, Reflexion đã sửa đúng thành công 100% ở lần thử thứ 2 nhờ vào các phân tích sâu từ `Reflector` và các prompt được thiết kế tối ưu, tăng cường khả năng định hướng lập luận từng chặng (multi-hop).
-2. **Đánh Đổi (Trade-off) cực kỳ tối ưu**:
-   - Chỉ tốn thêm **340.2 tokens** và tăng thêm vỏn vẹn **0.41 giây** thời gian chạy trung bình, nhưng đổi lại chúng ta đạt được độ chính xác tuyệt đối **100%** trên tập dữ liệu đánh giá. Đây là một tỉ số hiệu quả/chi phí cực kỳ xuất sắc.
-
+   - Trên tập lớn `hotpot_dev_60.json`, Reflexion đã khắc phục hiệu quả phần lớn các lỗi `incomplete_multi_hop` và `wrong_final_answer` của ReAct, giúp nâng độ chính xác từ **90% lên 96.67%**.
+   - Bộ dữ liệu vàng `hotpot_golden.json` chứng minh sức mạnh của tác vụ đa bước khi Reflexion giải quyết đúng 100% câu hỏi, giải quyết triệt để lỗi suy luận nửa vời của ReAct ở câu hỏi về Thủy Tinh (Mercury) và sao Hỏa (Mars).
+   
+2. **Đánh Đổi (Trade-off) về Tài Nguyên**:
+   - Việc phản chiếu tự sửa sai đem lại độ chính xác vượt trội hơn, tuy nhiên sẽ tăng thời gian phản hồi (khoảng **53%**) và tăng lượng token tiêu thụ (khoảng **32.3%** trên tập dữ liệu phức tạp). Do đó, cần cân nhắc áp dụng Reflexion cho các bài toán đòi hỏi tính chính xác tuyệt đối, trong khi ReAct phù hợp hơn cho các tác vụ cần tối ưu tốc độ và chi phí.

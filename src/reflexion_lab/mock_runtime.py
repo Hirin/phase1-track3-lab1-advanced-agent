@@ -39,10 +39,11 @@ def call_llm(messages: list[dict], system: str = None, max_tokens: int = 1024) -
         formatted_messages.append({"role": "system", "content": system})
     formatted_messages.extend(messages)
 
+    model_name = os.environ.get("MODEL_NAME", "gpt-4o-mini")
     data = {
-        "model": "gpt-5.4-mini",
+        "model": model_name,
         "messages": formatted_messages,
-        # Use max_completion_tokens as required by gpt-5.4-mini
+        # Use max_completion_tokens as required by the model
         "max_completion_tokens": max_tokens
     }
 

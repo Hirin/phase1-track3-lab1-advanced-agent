@@ -1,0 +1,402 @@
+[
+  {
+    "qid": "golden_1",
+    "difficulty": "easy",
+    "question": "In which country is the birthplace of the artist who painted the Mona Lisa located?",
+    "gold_answer": "Italy",
+    "context": [
+      {
+        "title": "Mona Lisa",
+        "text": "The Mona Lisa is a half-length portrait painting by Italian artist Leonardo da Vinci."
+      },
+      {
+        "title": "Leonardo da Vinci",
+        "text": "Leonardo da Vinci was born in Vinci, Italy, and became one of the most influential painters of the High Renaissance."
+      }
+    ]
+  },
+  {
+    "qid": "golden_2",
+    "difficulty": "easy",
+    "question": "What is the capital of the country where the historical monument Taj Mahal is located?",
+    "gold_answer": "New Delhi",
+    "context": [
+      {
+        "title": "Taj Mahal",
+        "text": "The Taj Mahal is an ivory-white marble mausoleum on the south bank of the Yamuna river in the Indian city of Agra."
+      },
+      {
+        "title": "New Delhi",
+        "text": "New Delhi is the capital of India and a seat of all three branches of the government of India."
+      }
+    ]
+  },
+  {
+    "qid": "golden_3",
+    "difficulty": "medium",
+    "question": "What is the atomic number of the chemical element named after the scientist who discovered the radioactive elements polonium and radium?",
+    "gold_answer": "96",
+    "context": [
+      {
+        "title": "Marie Curie",
+        "text": "Marie Curie was a Polish and naturalized-French physicist and chemist who conducted pioneering research on radioactivity, discovering polonium and radium. The element curium was named in honor of her and her husband Pierre."
+      },
+      {
+        "title": "Curium",
+        "text": "Curium is a transuranic radioactive chemical element with the symbol Cm and atomic number 96."
+      }
+    ]
+  },
+  {
+    "qid": "golden_4",
+    "difficulty": "medium",
+    "question": "What is the birth year of the director of the 2010 film Inception?",
+    "gold_answer": "1970",
+    "context": [
+      {
+        "title": "Inception",
+        "text": "Inception is a 2010 science fiction action film written and directed by Christopher Nolan, who also produced the film."
+      },
+      {
+        "title": "Christopher Nolan",
+        "text": "Christopher Nolan (born 30 July 1970) is a British-American film director, screenwriter, and producer."
+      }
+    ]
+  },
+  {
+    "qid": "golden_5",
+    "difficulty": "easy",
+    "question": "What language was the novel Don Quixote originally written in?",
+    "gold_answer": "Spanish",
+    "context": [
+      {
+        "title": "Don Quixote",
+        "text": "Don Quixote is a Spanish novel by Miguel de Cervantes, published in two parts, in 1605 and 1615."
+      },
+      {
+        "title": "Miguel de Cervantes",
+        "text": "Miguel de Cervantes Saavedra was a Spanish writer widely regarded as the greatest writer in the Spanish language."
+      }
+    ]
+  },
+  {
+    "qid": "golden_6",
+    "difficulty": "medium",
+    "question": "What lake is located next to the city where the World Health Organization is headquartered?",
+    "gold_answer": "Lake Geneva",
+    "context": [
+      {
+        "title": "World Health Organization",
+        "text": "The World Health Organization (WHO) is a specialized agency of the United Nations responsible for international public health, headquartered in Geneva, Switzerland."
+      },
+      {
+        "title": "Geneva",
+        "text": "Geneva is the second-most populous city in Switzerland and is situated where the River Rhône exits Lake Geneva."
+      }
+    ]
+  },
+  {
+    "qid": "golden_7",
+    "difficulty": "medium",
+    "question": "What is the currency of the country where the ancient city of Machu Picchu is situated?",
+    "gold_answer": "Peruvian Sol",
+    "context": [
+      {
+        "title": "Machu Picchu",
+        "text": "Machu Picchu is a 15th-century Inca citadel located in the Eastern Cordillera of southern Peru."
+      },
+      {
+        "title": "Peru",
+        "text": "Peru is a country in western South America, and its official currency is the Peruvian Sol."
+      }
+    ]
+  },
+  {
+    "qid": "golden_8",
+    "difficulty": "hard",
+    "question": "Which American actor who voiced Buzz Lightyear in Toy Story also starred in the sitcom Home Improvement?",
+    "gold_answer": "Tim Allen",
+    "context": [
+      {
+        "title": "Toy Story",
+        "text": "Toy Story is a 1995 American computer-animated buddy comedy film produced by Pixar Animation Studios, featuring the voice of Tim Allen as Buzz Lightyear."
+      },
+      {
+        "title": "Home Improvement",
+        "text": "Home Improvement is an American television sitcom starring Tim Allen that aired on ABC from 1991 to 1999."
+      }
+    ]
+  },
+  {
+    "qid": "golden_9",
+    "difficulty": "medium",
+    "question": "What was the nationality of the pilot of the Vostok 1 spacecraft?",
+    "gold_answer": "Soviet",
+    "context": [
+      {
+        "title": "Vostok 1",
+        "text": "Vostok 1 was the first spaceflight of the Vostok program and the first human spaceflight in history, carrying Soviet cosmonaut Yuri Gagarin."
+      },
+      {
+        "title": "Yuri Gagarin",
+        "text": "Yuri Gagarin was a Soviet pilot and cosmonaut who became the first human to journey into outer space."
+      }
+    ]
+  },
+  {
+    "qid": "golden_10",
+    "difficulty": "hard",
+    "question": "What is the capital of the country that lies south of the sea in which Cyprus is situated?",
+    "gold_answer": "Cairo",
+    "context": [
+      {
+        "title": "Cyprus",
+        "text": "Cyprus is an island country in the eastern Mediterranean Sea, located south of the Anatolian peninsula."
+      },
+      {
+        "title": "Egypt",
+        "text": "Egypt, officially the Arab Republic of Egypt, is a transcontinental country spanning the northeast corner of Africa and southwest corner of Asia. It borders the Mediterranean Sea to the north, and its capital is Cairo."
+      }
+    ]
+  },
+  {
+    "qid": "golden_11",
+    "difficulty": "easy",
+    "question": "What is the capital of the US state where the Grand Canyon is located?",
+    "gold_answer": "Phoenix",
+    "context": [
+      {
+        "title": "Grand Canyon",
+        "text": "The Grand Canyon is a steep-sided canyon carved by the Colorado River in the state of Arizona, United States."
+      },
+      {
+        "title": "Arizona",
+        "text": "Arizona is a state in the Southwestern region of the United States, and its capital and largest city is Phoenix."
+      }
+    ]
+  },
+  {
+    "qid": "golden_12",
+    "difficulty": "medium",
+    "question": "What is the name of the only complete novel written by the author of the poem 'The Raven'?",
+    "gold_answer": "The Narrative of Arthur Gordon Pym of Nantucket",
+    "context": [
+      {
+        "title": "The Raven",
+        "text": "The Raven is a narrative poem by American writer Edgar Allan Poe, first published in January 1845."
+      },
+      {
+        "title": "Edgar Allan Poe",
+        "text": "Edgar Allan Poe was an American writer, editor, and literary critic. His only completed novel is the 1838 work The Narrative of Arthur Gordon Pym of Nantucket."
+      }
+    ]
+  },
+  {
+    "qid": "golden_13",
+    "difficulty": "medium",
+    "question": "Which band, whose lead singer was Freddie Mercury, recorded the song 'Bohemian Rhapsody'?",
+    "gold_answer": "Queen",
+    "context": [
+      {
+        "title": "Bohemian Rhapsody",
+        "text": "Bohemian Rhapsody is a song by the British rock band Queen, written by Freddie Mercury for the band's 1975 album A Night at the Opera."
+      },
+      {
+        "title": "Freddie Mercury",
+        "text": "Freddie Mercury was a British singer-songwriter who achieved worldwide fame as the lead vocalist of the rock band Queen."
+      }
+    ]
+  },
+  {
+    "qid": "golden_14",
+    "difficulty": "hard",
+    "question": "Which country was the origin of the shipping company that owned the tragic passenger liner Titanic?",
+    "gold_answer": "United Kingdom",
+    "context": [
+      {
+        "title": "Titanic",
+        "text": "RMS Titanic was a British passenger liner operated by the White Star Line that sank in the North Atlantic Ocean on 15 April 1912."
+      },
+      {
+        "title": "White Star Line",
+        "text": "The White Star Line was a prominent British shipping company, founded in Liverpool, England, famous for its luxurious passenger liners."
+      }
+    ]
+  },
+  {
+    "qid": "golden_15",
+    "difficulty": "hard",
+    "question": "What is the name of the active stratovolcano that destroyed the Roman city where Pliny the Elder died?",
+    "gold_answer": "Mount Vesuvius",
+    "context": [
+      {
+        "title": "Pliny the Elder",
+        "text": "Pliny the Elder was a Roman author, naturalist, and natural philosopher who died in AD 79 in Stabiae while attempting to rescue friends during the eruption of Mount Vesuvius."
+      },
+      {
+        "title": "Mount Vesuvius",
+        "text": "Mount Vesuvius is a stratovolcano in the Gulf of Naples, Italy, best known for its eruption in AD 79 that led to the destruction of the Roman cities of Pompeii and Herculaneum."
+      }
+    ]
+  },
+  {
+    "qid": "golden_16",
+    "difficulty": "easy",
+    "question": "What is the primary language spoken in the country where the Great Barrier Reef is located?",
+    "gold_answer": "English",
+    "context": [
+      {
+        "title": "Great Barrier Reef",
+        "text": "The Great Barrier Reef is the world's largest coral reef system, located in the Coral Sea, off the coast of Queensland, Australia."
+      },
+      {
+        "title": "Australia",
+        "text": "Australia is a sovereign country comprising the mainland of the Australian continent, where English is the de facto national language."
+      }
+    ]
+  },
+  {
+    "qid": "golden_17",
+    "difficulty": "medium",
+    "question": "In which year did the country that contains the city of Geneva host the Winter Olympic Games for the first time?",
+    "gold_answer": "1928",
+    "context": [
+      {
+        "title": "Geneva",
+        "text": "Geneva is a global city, financial center, and worldwide center for diplomacy, located in Switzerland."
+      },
+      {
+        "title": "Switzerland at the Olympics",
+        "text": "Switzerland hosted the Winter Olympic Games for the first time in 1928, when the games were held in St. Moritz."
+      }
+    ]
+  },
+  {
+    "qid": "golden_18",
+    "difficulty": "medium",
+    "question": "What is the name of the planet closest to the Sun in the solar system containing the volcano Olympus Mons?",
+    "gold_answer": "Mercury",
+    "context": [
+      {
+        "title": "Olympus Mons",
+        "text": "Olympus Mons is a very large shield volcano on the planet Mars, which is the fourth planet from the Sun in the solar system."
+      },
+      {
+        "title": "Mercury (planet)",
+        "text": "Mercury is the smallest and closest planet to the Sun in the Solar System."
+      }
+    ]
+  },
+  {
+    "qid": "golden_19",
+    "difficulty": "hard",
+    "question": "What is the official language of the country that is home to the Serengeti National Park?",
+    "gold_answer": "Swahili",
+    "context": [
+      {
+        "title": "Serengeti National Park",
+        "text": "The Serengeti National Park is a large national park in northern Tanzania, famous for its annual migration of over 1.5 million white-bearded wildebeest."
+      },
+      {
+        "title": "Tanzania",
+        "text": "Tanzania is a country in East Africa. Swahili is the national language of Tanzania, while English is also widely used."
+      }
+    ]
+  },
+  {
+    "qid": "golden_20",
+    "difficulty": "hard",
+    "question": "Who was the first president of the country where the Suez Canal is located?",
+    "gold_answer": "Mohamed Naguib",
+    "context": [
+      {
+        "title": "Suez Canal",
+        "text": "The Suez Canal is an artificial sea-level waterway in Egypt, connecting the Mediterranean Sea to the Red Sea."
+      },
+      {
+        "title": "Mohamed Naguib",
+        "text": "Mohamed Naguib was the first President of Egypt, serving from the declaration of the Republic on 18 June 1953 to 14 November 1954."
+      }
+    ]
+  },
+  {
+    "qid": "golden_21",
+    "difficulty": "easy",
+    "question": "Who is the author of the play that features the characters Romeo and Juliet?",
+    "gold_answer": "William Shakespeare",
+    "context": [
+      {
+        "title": "Romeo and Juliet",
+        "text": "Romeo and Juliet is a tragedy written by William Shakespeare early in his career about two young star-crossed lovers."
+      },
+      {
+        "title": "William Shakespeare",
+        "text": "William Shakespeare was an English playwright, poet, and actor, widely regarded as the greatest writer in the English language."
+      }
+    ]
+  },
+  {
+    "qid": "golden_22",
+    "difficulty": "medium",
+    "question": "What is the name of the ocean where the island of Madagascar is located?",
+    "gold_answer": "Indian Ocean",
+    "context": [
+      {
+        "title": "Madagascar",
+        "text": "Madagascar, officially the Republic of Madagascar, is an island country in the Indian Ocean, approximately 400 kilometres off the coast of East Africa."
+      },
+      {
+        "title": "Indian Ocean",
+        "text": "The Indian Ocean is the third-largest of the world's oceanic divisions, bounded by Asia on the north and Africa on the west."
+      }
+    ]
+  },
+  {
+    "qid": "golden_23",
+    "difficulty": "medium",
+    "question": "What is the nickname of the NBA team that plays its home games in the city where the Liberty Bell is located?",
+    "gold_answer": "76ers",
+    "context": [
+      {
+        "title": "Liberty Bell",
+        "text": "The Liberty Bell is an iconic symbol of American independence, located in Philadelphia, Pennsylvania."
+      },
+      {
+        "title": "Philadelphia 76ers",
+        "text": "The Philadelphia 76ers, colloquially known as the 76ers, are an American professional basketball team based in the Philadelphia metropolitan area."
+      }
+    ]
+  },
+  {
+    "qid": "golden_24",
+    "difficulty": "hard",
+    "question": "Which scientist developed the vaccine that eradicated the disease caused by the Variola virus?",
+    "gold_answer": "Edward Jenner",
+    "context": [
+      {
+        "title": "Variola virus",
+        "text": "Variola virus is the virus that causes smallpox, an infectious disease that was declared eradicated in 1980."
+      },
+      {
+        "title": "Smallpox vaccine",
+        "text": "The smallpox vaccine was the first vaccine to be developed against a contagious disease, introduced by Edward Jenner in 1796."
+      }
+    ]
+  },
+  {
+    "qid": "golden_25",
+    "difficulty": "hard",
+    "question": "What is the capital city of the country that has the highest number of active volcanoes, and is also an archipelago nation?",
+    "gold_answer": "Jakarta",
+    "context": [
+      {
+        "title": "Volcanoes of Indonesia",
+        "text": "Indonesia has the highest number of active volcanoes of any country in the world, owing to its position on the Pacific Ring of Fire."
+      },
+      {
+        "title": "Indonesia",
+        "text": "Indonesia is an archipelago nation in Southeast Asia, and its capital city is Jakarta."
+      }
+    ]
+  }
+]
