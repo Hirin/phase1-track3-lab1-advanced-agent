@@ -71,6 +71,12 @@ graph TD
      - Đoạn bài học phản chiếu (`lesson` và `next_strategy`) được định dạng và đưa vào `reflection_memory`.
      - Vòng lặp quay trở lại **Bước 2.1** với bộ nhớ phản chiếu mới được truyền cho Actor.
 
+3. **Ghi nhận & Phân loại lỗi động (Dynamic Failure Classification)**:
+   - Khi kết thúc toàn bộ số lần thử mà vẫn chưa có câu trả lời đúng (score = 0), hệ thống sẽ phân tích phản hồi cuối cùng từ Evaluator để phân loại lỗi:
+     - Nếu có bằng chứng bị thiếu (`missing_evidence`), lỗi được phân loại là `incomplete_multi_hop`.
+     - Nếu có thông tin sai lệch (`spurious_claims`), lỗi được phân loại là `entity_drift`.
+     - Các trường hợp khác mặc định là `wrong_final_answer`.
+
 ---
 
 ## 3. Kết Quả Đánh Giá Benchmark Thực Tế (Benchmark Results)
